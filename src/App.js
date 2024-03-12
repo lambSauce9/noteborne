@@ -1,10 +1,16 @@
 import "./App.css";
-import EditorComponent from "./components/EditorComponent";
+import { useState } from "react";
+import Editor from "./components/editor/Editor";
+import exampleData from "./components/editor/data/exampleData";
 
 function App() {
+  const [data, setData] = useState(exampleData);
+
   return (
     <div className="App">
-      <EditorComponent />
+      <div className="app-content">
+        <Editor data={data} setData={setData} />
+      </div>
     </div>
   );
 }

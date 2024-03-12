@@ -1,38 +1,48 @@
 .App {
+  /* font-family: sans-serif; */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  font-style: 16px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* styling button */
+#toggle-edit-btn {
+  background-color: #4267b2;
+  border: 1px solid #4267b2;
+  border-radius: 0.3rem;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  margin: 2rem auto;
 }
 
-.App-link {
-  color: #61dafb;
+#toggle-edit-btn:focus,
+#toggle-edit-btn:hover {
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* styling app content container */
+.app-content {
+  margin: 1rem auto;
+  width: 80%;
+  padding: 5%;
+  background-color: #f4f5f9;
+}
+
+/* styling alert text when edit mode is enabled */
+.edit-mode-alert {
+  text-decoration: underline;
+  color: #c80000;
+}
+
+/* styling text parsed */
+.text-container > *,
+.editor-container > * {
+  text-align: left;
 }
