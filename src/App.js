@@ -63,7 +63,7 @@ function App() {
             <div className="text-white ml-5 w-48 font-bold">{currentTitle}</div>
             <div className="flex flex-row items-center">
               <div className="text-white ml-5 text-sm">
-                {`Last edited ${dayjs(currentNoteData.data.time).format(
+                {`Last edited ${dayjs(currentNoteData?.data?.time).format(
                   "DD/MM/YYYY HH:mm:ss"
                 )}`}
               </div>
