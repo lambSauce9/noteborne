@@ -29,9 +29,8 @@ body {
 
 /* styling app content container */
 .app-content {
-  margin: 1rem auto;
   width: 80%;
-  padding: 5%;
+  justify-content: center;
   background-color: #f4f5f9;
 }
 
