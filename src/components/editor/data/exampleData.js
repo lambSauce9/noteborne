@@ -154,7 +154,7 @@ const exampleData = {
       id: "5C25tVPerC",
       type: "simpleImage",
       data: {
-        url: "https://preview.redd.it/3vmze4znkm981.jpg?width=936&format=pjpg&auto=webp&s=507b77693dee6bed7955c734d99ec1a7b3e12540",
+        url: "https://m.media-amazon.com/images/M/MV5BMTc4YTY0MDUtYWNmMi00NTRiLWE4NmItM2JiMmIzYmEwNGQzXkEyXkFqcGdeQXVyNTkwNzYyODM@._V1_FMjpg_UX1000_.jpg",
         caption: "Pasting image to paragraph to show it",
         withBorder: true,
         withBackground: true,
