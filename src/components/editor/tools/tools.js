@@ -14,7 +14,8 @@ import CheckList from "@editorjs/checklist";
 import Delimiter from "@editorjs/delimiter";
 import InlineCode from "@editorjs/inline-code";
 import SimpleImage from "@editorjs/simple-image";
-import VideoTool from "@weekwood/editorjs-video";
+// import VideoTool from "@weekwood/editorjs-video";
+import YoutubeEmbed from "editorjs-youtube-embed";
 
 export const EDITOR_JS_TOOLS = {
   // NOTE: Paragraph is default tool. Declare only when you want to change paragraph option.
@@ -34,5 +35,6 @@ export const EDITOR_JS_TOOLS = {
   delimiter: Delimiter,
   inlineCode: InlineCode,
   simpleImage: SimpleImage,
-  video: VideoTool,
+  // video: VideoTool,
+  YoutubeEmbed: YoutubeEmbed,
 };
