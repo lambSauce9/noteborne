@@ -21,6 +21,7 @@
     "@editorjs/table": "2.1.0",
     "@editorjs/warning": "1.2.0",
     "@emotion/react": "^11.11.4",
+    "antd": "^5.16.0",
     "dayjs": "^1.11.10",
     "editorjs-html": "3.4.2",
     "editorjs-youtube-embed": "^1.0.3",

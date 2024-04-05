@@ -5,12 +5,17 @@ import { ReactComponent as AddIcon } from "../../assets/icons/plus-icon.svg";
 import { ReactComponent as ArrowLeft } from "../../assets/icons/arrow-left.svg";
 import logo from "../../assets/imgs/logo.png";
 import dayjs from "dayjs";
+import { simpleData } from "../../App";
 
 export default function SidebarComponent({
   data,
   setData,
   currentIndex,
   setCurrentNoteIndex,
+  currentSubNoteIndex,
+  setCurrentSubNoteIndex,
+  isShowingSubnote,
+  setIsShowingSubnote,
 }) {
   const { collapseSidebar } = useProSidebar();
   const [isOpen, setIsOpen] = useState(true);
@@ -65,6 +70,15 @@ export default function SidebarComponent({
                   },
                 ],
               },
+              backgroundColor: "#FFFFFF",
+              subNote: [
+                {
+                  title: "🤓 Sub 1",
+                  data: simpleData,
+                  backgroundColor: "#FFFFFF",
+                  isSubnote: true,
+                },
+              ],
             };
             setData([...data, t]);
           }}
@@ -81,21 +95,94 @@ export default function SidebarComponent({
           <div className="mt-10 ml-5">
             {data.map((item, index) => {
               return (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentNoteIndex(index);
-                  }}
-                  className="flex flex-row w-56 justify-between mt-3"
-                >
-                  <div
-                    className={`font-bold font-mono ${
-                      index === currentIndex ? "text-white" : "text-gray-500"
-                    }`}
-                  >
-                    {item.title}
+                <div>
+                  <div className="flex flex-row">
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setIsShowingSubnote(false);
+                        setCurrentNoteIndex(index);
+                      }}
+                      className="flex flex-row justify-between mt-3"
+                    >
+                      <div
+                        className={`font-bold font-mono ${
+                          index === currentIndex
+                            ? "text-white"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {item.title}
+                      </div>
+                    </button>
+                    <div
+                      className="pt-2.5 ml-3 cursor-pointer"
+                      onClick={() => {
+                        let currentData = data;
+                        const t = {
+                          title: "Sub note",
+                          data: {
+                            time: dayjs(),
+                            blocks: [
+                              {
+                                id: "sheNwCUP5A",
+                                type: "header",
+                                data: {
+                                  text: "New Note",
+                                  level: 3,
+                                },
+                              },
+                            ],
+                          },
+                          backgroundColor: "#FFFFFF",
+                          isSubnote: true,
+                        };
+
+                        const newDataAfterAdd = [
+                          ...currentData[index].subNote,
+                          t,
+                        ];
+
+                        currentData[index].subNote = newDataAfterAdd;
+                        setData([...currentData]);
+                      }}
+                    >
+                      +
+                    </div>
                   </div>
-                </button>
+                  {currentIndex === index && (
+                    <div>
+                      {item.subNote.length !== 0 &&
+                        item.subNote.map((subItem, subIndex) => {
+                          return (
+                            <button
+                              key={subIndex}
+                              onClick={() => {
+                                setCurrentNoteIndex(index);
+                                setIsShowingSubnote(true);
+                                setCurrentSubNoteIndex(subIndex);
+                              }}
+                              className="flex flex-row w-56 justify-between mt-3"
+                            >
+                              <div
+                                className={`font-bold font-monom ml-2.5 ${
+                                  isShowingSubnote
+                                    ? `${
+                                        subIndex === currentSubNoteIndex
+                                          ? "text-white"
+                                          : "text-gray-500"
+                                      }`
+                                    : "text-gray-500"
+                                }`}
+                              >
+                                {subItem.title}
+                              </div>
+                            </button>
+                          );
+                        })}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
