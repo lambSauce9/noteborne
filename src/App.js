@@ -207,7 +207,7 @@ function App() {
             <div className="flex flex-row mt-32 mb-20">
               <input
                 style={{ backgroundColor: currentColor }}
-                className="text-5xl mx-96 outline-none"
+                className="text-5xl ml-96 outline-none"
                 placeholder="Title"
                 value={currentTitle}
                 onChange={(event) => {
