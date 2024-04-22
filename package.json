@@ -19,6 +19,7 @@
     "@editorjs/raw": "2.3.1",
     "@editorjs/simple-image": "1.4.1",
     "@editorjs/table": "2.1.0",
+    "@editorjs/underline": "^1.1.0",
     "@editorjs/warning": "1.2.0",
     "@emotion/react": "^11.11.4",
     "antd": "^5.16.0",

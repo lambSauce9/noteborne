@@ -72,6 +72,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isShowingSubnote, setIsShowingSubnote] = useState(false);
 
+  const [titleColor, setTitleColor] = useState("#000000");
+
   useEffect(() => {
     if (!isShowingSubnote) {
       setIsLoading(true);
@@ -156,17 +158,6 @@ function App() {
                 value={currentSubTitle}
                 onChange={(event) => {}}
               />
-              {/* <ColorPicker
-                style={{ marginTop: 9, marginRight: 10 }}
-                value={currentSubColor}
-                size="large"
-                showText
-                format="hex"
-                onChange={(color) => {}}
-              />
-              <button onClick={() => {}}>
-                <DeleteIconActive className="w-10 h-10 pt" />
-              </button> */}
             </div>
 
             {isLoading ? (
@@ -206,7 +197,7 @@ function App() {
             </div>
             <div className="flex flex-row mt-32 mb-20">
               <input
-                style={{ backgroundColor: currentColor }}
+                style={{ backgroundColor: currentColor, color: titleColor }}
                 className="text-5xl ml-96 outline-none"
                 placeholder="Title"
                 value={currentTitle}
@@ -230,6 +221,17 @@ function App() {
                   setCurrentNoteData(tmpCurrentData);
                 }}
               />
+              <ColorPicker
+                style={{ marginTop: 9, marginRight: 10 }}
+                value={titleColor}
+                size="large"
+                showText
+                format="hex"
+                onChange={(color) => {
+                  setTitleColor(color.toHexString());
+                }}
+              />
+
               <button
                 onClick={() => {
                   if (data.length === 1) {

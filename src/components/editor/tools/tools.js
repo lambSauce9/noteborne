@@ -16,6 +16,7 @@ import InlineCode from "@editorjs/inline-code";
 import SimpleImage from "@editorjs/simple-image";
 // import VideoTool from "@weekwood/editorjs-video";
 import YoutubeEmbed from "editorjs-youtube-embed";
+import Underline from "@editorjs/underline";
 
 export const EDITOR_JS_TOOLS = {
   // NOTE: Paragraph is default tool. Declare only when you want to change paragraph option.
@@ -37,4 +38,5 @@ export const EDITOR_JS_TOOLS = {
   simpleImage: SimpleImage,
   // video: VideoTool,
   YoutubeEmbed: YoutubeEmbed,
+  underline: Underline,
 };

@@ -62,7 +62,7 @@ const exampleData = {
       id: "SzwhuyoFq6",
       type: "header",
       data: {
-        text: "What does it mean clean data output",
+        text: 'Create a directory for your module, enter it and run <u class="cdx-underline">npm init</u> command.',
         level: 3,
       },
     },
