@@ -11,7 +11,6 @@ export default function Editor({ data, setData, setTitleColor }) {
   const editorCore = useRef(null);
   const ReactEditorJS = createReactEditorJS();
   const [textColor, setTextColor] = useState("#000000");
-  const [fontSize, setFontSize] = useState(16);
 
   const handleInitialize = useCallback((instance) => {
     // await instance._editorJS.isReady;
@@ -28,14 +27,11 @@ export default function Editor({ data, setData, setTitleColor }) {
     const savedData = await editorCore.current.save();
     // save data
     // setData(savedData);
-    // console.log("savedData", savedData);
+    console.log("savedData", savedData);
   }, [setData]);
 
   return (
-    <div
-      className="editor-container"
-      style={{ color: textColor, fontSize: fontSize }}
-    >
+    <div className="editor-container" style={{ color: textColor }}>
       <div
         style={{
           flexDirection: "column",
@@ -51,14 +47,6 @@ export default function Editor({ data, setData, setTitleColor }) {
           onChange={(color) => {
             setTextColor(color.toHexString());
           }}
-        />
-        <InputNumber
-          style={{ height: 40, width: 121 }}
-          min={8}
-          max={40}
-          defaultValue={16}
-          value={fontSize}
-          onChange={(number) => setFontSize(number)}
         />
       </div>
 

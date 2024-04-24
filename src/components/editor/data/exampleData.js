@@ -169,6 +169,20 @@ const exampleData = {
         items: ["List", "List", "List"],
       },
     },
+    {
+      id: "m-ZV_3QjWq",
+      type: "paragraph",
+      data: {
+        text: '<u class="cdx-underline">Blacken out to Underscored, example</u>',
+      },
+    },
+    {
+      id: "m-1231231",
+      type: "paragraph",
+      data: {
+        text: '<font size="5">TEXT SIZE EXAMPLE</font>',
+      },
+    },
   ],
 };
 
