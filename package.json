@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@weekwood/editorjs-video": "^1.0.2",
+    "editorjs-drag-drop": "^1.1.14",
     "editorjs-inline-font-size-tool": "^1.0.1",
     "tailwindcss": "^3.4.1"
   }
