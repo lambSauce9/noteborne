@@ -1,11 +1,12 @@
-import React, { useRef, useCallback, useState } from "react";
+import React, { useRef, useCallback, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 
 // import tools for editor config
 import { EDITOR_JS_TOOLS } from "./tools/tools";
 
 // create editor instance
 import { createReactEditorJS } from "react-editor-js";
-import { ColorPicker, InputNumber } from "antd";
+import { Alert, Checkbox, ColorPicker, InputNumber } from "antd";
 import DragDrop from "editorjs-drag-drop";
 
 export default function Editor({ data, setData, setTitleColor }) {
@@ -29,18 +30,34 @@ export default function Editor({ data, setData, setTitleColor }) {
     editorCore.current = instance;
   }, []);
 
-  const handleSave = useCallback(async () => {
-    // retrieve data inserted
-    const savedData = await editorCore.current.save();
-    // save data
-    // setData(savedData);
-    console.log("savedData", savedData);
-  }, [setData]);
+  const handleSave = useCallback(
+    async (e) => {
+      console.log(e);
+      // retrieve data inserted
+      const savedData = await editorCore.current.save();
+      // save data
+      setData(savedData);
+      // console.log("savedData", savedData);
+    },
+    [setData]
+  );
 
   const handleReady = () => {
     const editor = editorCore.current._editorJS;
     new DragDrop(editor);
   };
+
+  var first = document.createElement("input");
+  first.setAttribute("type", "color");
+  first.addEventListener("change", (event) => {
+    if (!document.querySelector("div.ce-block.ce-block--focused")) {
+      Alert("Please click on the block you want to change color");
+    } else {
+      document.querySelector(
+        "div.ce-block.ce-block--focused"
+      ).style.backgroundColor = event.target.value;
+    }
+  });
 
   return (
     <div className="editor-container" style={{ color: textColor }}>
@@ -61,6 +78,33 @@ export default function Editor({ data, setData, setTitleColor }) {
           }}
         />
       </div>
+      {/* <div
+        onClick={() => {
+          if (document.getElementsByClassName("ce-settings").length === 0) {
+            return;
+          } else {
+            document
+              .getElementsByClassName("ce-settings")[0]
+              .appendChild(first);
+          }
+        }}
+      >
+        Allow to change block color
+      </div> */}
+      <Checkbox
+        onClick={() => {
+          if (document.getElementsByClassName("ce-settings").length === 0) {
+            return;
+          } else {
+            document
+              .getElementsByClassName("ce-settings")[0]
+              .appendChild(first);
+          }
+        }}
+      >
+        Allow to change block color, Press "Enter" after choosing the color for
+        the background
+      </Checkbox>
 
       <ReactEditorJS
         instanceRef={(instance) => (instanceRef.current = instance)}
@@ -69,6 +113,7 @@ export default function Editor({ data, setData, setTitleColor }) {
         tools={EDITOR_JS_TOOLS}
         onChange={handleSave}
         defaultValue={data}
+        autofocus={true}
       />
     </div>
   );
